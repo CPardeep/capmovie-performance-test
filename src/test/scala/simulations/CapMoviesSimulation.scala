@@ -14,7 +14,7 @@ class CapMoviesSimulation extends Simulation{
     .exec(RegisterMovie.getMovieNamePage)
     .exec(RegisterMovie.submitMovieName)
 
-  val RegisterMovieSimulation =
+  val RegisterMovieSimulation: SetUp =
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
 
 }
