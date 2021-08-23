@@ -11,8 +11,8 @@ class CapMoviesSimulation extends Simulation{
     .inferHtmlResources()
 
   val scn = scenario("RegisterMovieSimulation")
-    .exec(RegisterMovie.getMovieNamePage)
-    .exec(RegisterMovie.submitMovieName)
+    .exec(RegisterMovie.getMovieTitlePage)
+    .exec(RegisterMovie.submitMovieTitle)
 
   val RegisterMovieSimulation: SetUp =
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
