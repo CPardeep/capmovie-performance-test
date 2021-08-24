@@ -5,17 +5,17 @@ import io.gatling.core.structure.ChainBuilder
 import io.gatling.http.Predef._
 
 object RegisterMovie {
-  def getMovieNamePage: ChainBuilder = {
-    exec(http("Get movie name page")
-      .get("/movie-name/")
+  def getMovieTitlePage: ChainBuilder = {
+    exec(http("Get movie title page")
+      .get("/movie-title/")
       .check(status.is(200))
     )
   }
 
-  def submitMovieName: ChainBuilder = {
-    exec(http("Submit movie name")
-      .post("/movie-name/")
-      .formParam("name", "TestName")
+  def submitMovieTitle: ChainBuilder = {
+    exec(http("Submit movie title")
+      .post("/movie-title/")
+      .formParam("title", "TestTitle")
       .check(status.is(200))
     )
   }
