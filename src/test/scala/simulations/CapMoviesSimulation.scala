@@ -2,7 +2,7 @@ package simulations
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import requests.RegisterMovie
+import requests.{HomePage, RegisterMovie}
 
 class CapMoviesSimulation extends Simulation{
 
@@ -13,6 +13,7 @@ class CapMoviesSimulation extends Simulation{
   val scn = scenario("RegisterMovieSimulation")
     .exec(RegisterMovie.getMovieTitlePage)
     .exec(RegisterMovie.submitMovieTitle)
+    .exec(HomePage.getHomePage)
 
   val RegisterMovieSimulation: SetUp =
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
