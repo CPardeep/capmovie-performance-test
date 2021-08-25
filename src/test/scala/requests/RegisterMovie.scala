@@ -19,4 +19,18 @@ object RegisterMovie {
       .check(status.is(200))
     )
   }
+  def getMoviePosterPage: ChainBuilder = {
+    exec(http("Get movie poster page")
+      .post("/movie-poster")
+      .formParam("poster", "TestPoster")
+      .check(status.is(200))
+    )
+  }
+  def submitMoviePoster: ChainBuilder = {
+    exec(http("Submit movie poster")
+      .post("/movie-poster/")
+      .formParam("poster", "TestPoster")
+      .check(status.is(200))
+    )
+  }
 }
