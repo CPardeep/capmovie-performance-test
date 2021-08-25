@@ -13,6 +13,8 @@ class CapMoviesSimulation extends Simulation{
   val scn = scenario("RegisterMovieSimulation")
     .exec(RegisterMovie.getMovieTitlePage)
     .exec(RegisterMovie.submitMovieTitle)
+    .exec(RegisterMovie.getMoviePosterPage)
+    .exec(RegisterMovie.submitMoviePoster)
     .exec(HomePage.getHomePage)
 
   val RegisterMovieSimulation: SetUp =
