@@ -21,8 +21,7 @@ object RegisterMovie {
   }
   def getMoviePosterPage: ChainBuilder = {
     exec(http("Get movie poster page")
-      .post("/movie-poster")
-      .formParam("poster", "TestPoster")
+      .get("/movie-poster")
       .check(status.is(200))
     )
   }
@@ -30,6 +29,21 @@ object RegisterMovie {
     exec(http("Submit movie poster")
       .post("/movie-poster/")
       .formParam("poster", "TestPoster")
+      .check(status.is(200))
+    )
+  }
+
+  def getMoviePlot: ChainBuilder = {
+    exec(http("Submit movie plot")
+      .get("/movie-plot/")
+      .check(status.is(200))
+    )
+  }
+
+  def submitMoviePlot: ChainBuilder = {
+    exec(http("Submit movie plot")
+      .post("/movie-plot/")
+      .formParam("plot", "TestPlot")
       .check(status.is(200))
     )
   }
