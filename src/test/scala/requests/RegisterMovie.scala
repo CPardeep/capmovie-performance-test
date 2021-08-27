@@ -16,7 +16,8 @@ object RegisterMovie {
     exec(http("Submit movie title")
       .post("/movie-title/")
       .formParam("title", "TestTitle")
-      .check(status.is(200))
+      .disableFollowRedirect
+      .check(status.is(303))
     )
   }
   def getMoviePosterPage: ChainBuilder = {
@@ -29,12 +30,13 @@ object RegisterMovie {
     exec(http("Submit movie poster")
       .post("/movie-poster/")
       .formParam("poster", "TestPoster")
-      .check(status.is(200))
+      .disableFollowRedirect
+      .check(status.is(303))
     )
   }
 
   def getMoviePlot: ChainBuilder = {
-    exec(http("Submit movie plot")
+    exec(http("get movie plot")
       .get("/movie-plot/")
       .check(status.is(200))
     )
@@ -44,7 +46,26 @@ object RegisterMovie {
     exec(http("Submit movie plot")
       .post("/movie-plot/")
       .formParam("plot", "TestPlot")
+      .disableFollowRedirect
+      .check(status.is(303))
+    )
+  }
+
+  def getLogin: ChainBuilder = {
+    exec(http("Get Login Page")
+      .get("/login/")
       .check(status.is(200))
     )
   }
+
+  def submitLogin: ChainBuilder = {
+    exec(http("Submit login details")
+      .post("/login/")
+      .formParam("id", "ADMIN0001")
+      .formParam("password", "PASS")
+      .disableFollowRedirect
+      .check(status.is(303))
+    )
+  }
+
 }
