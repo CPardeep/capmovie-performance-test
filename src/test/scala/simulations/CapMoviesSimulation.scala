@@ -33,3 +33,4 @@ class CapMoviesSimulation extends Simulation {
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
 
 }
+
