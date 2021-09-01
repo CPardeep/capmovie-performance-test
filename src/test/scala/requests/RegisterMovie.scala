@@ -93,5 +93,4 @@ object RegisterMovie {
       .check(status.is(200))
     )
   }
-
 }
