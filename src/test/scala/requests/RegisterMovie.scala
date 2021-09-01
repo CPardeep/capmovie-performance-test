@@ -87,6 +87,7 @@ object RegisterMovie {
       .check(status.is(303))
     )
   }
+
   def getMovieGenresConfPage: ChainBuilder = {
     exec(http("Get movie genres confirmation page")
       .get("/movie-genres/confirmation")
@@ -94,4 +95,26 @@ object RegisterMovie {
     )
   }
 
+  def getMovieCastPage: ChainBuilder = {
+    exec(http("Get movie cast page")
+      .get("/movie-cast/")
+      .check(status.is(200))
+    )
+  }
+
+  def submitMovieCast: ChainBuilder = {
+    exec(http("Submit movie cast")
+      .post("/movie-cast/")
+      .formParam("cast", "testCast")
+      .disableFollowRedirect
+      .check(status.is(303))
+    )
+  }
+
+  def getMovieCastConfPage: ChainBuilder = {
+    exec(http("Get movie cast confirmation page")
+      .get("/movie-cast/confirmation")
+      .check(status.is(200))
+    )
+  }
 }

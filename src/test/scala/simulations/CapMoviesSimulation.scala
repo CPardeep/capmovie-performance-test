@@ -27,6 +27,9 @@ class CapMoviesSimulation extends Simulation {
     .exec(RegisterMovie.getMovieGenresPage)
     .exec(RegisterMovie.submitMovieGenres)
     .exec(RegisterMovie.getMovieGenresConfPage)
+    .exec(RegisterMovie.getMovieCastPage)
+    .exec(RegisterMovie.submitMovieCast)
+    .exec(RegisterMovie.getMovieCastConfPage)
     .exec(HomePage.getHomePage)
 
   val RegisterMovieSimulation: SetUp =
