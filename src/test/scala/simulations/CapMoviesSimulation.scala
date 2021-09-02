@@ -14,8 +14,10 @@ class CapMoviesSimulation extends Simulation {
     .inferHtmlResources()
 
   val scn: ScenarioBuilder = scenario("RegisterMovieSimulation")
+    .exec(MoviePage.getMoviePage)
     .exec(RegisterMovie.getLogin)
     .exec(RegisterMovie.submitLogin)
+    .exec(HomePage.getHomePage)
     .exec(RegisterMovie.getMovieTitlePage)
     .exec(RegisterMovie.submitMovieTitle)
     .exec(RegisterMovie.getMoviePlot)
@@ -30,8 +32,10 @@ class CapMoviesSimulation extends Simulation {
     .exec(RegisterMovie.getMovieCastPage)
     .exec(RegisterMovie.submitMovieCast)
     .exec(RegisterMovie.getMovieCastConfPage)
-    .exec(HomePage.getHomePage)
-    .exec(MoviePage.getMoviePage)
+    .exec(RegisterMovie.getMovieSummaryPage)
+    .exec(RegisterMovie.submitMovieSummaryPage)
+    .exec(RegisterMovie.getSubmissionConfPage)
+
 
   val RegisterMovieSimulation: SetUp =
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))

@@ -117,4 +117,27 @@ object RegisterMovie {
       .check(status.is(200))
     )
   }
+
+  def getMovieSummaryPage: ChainBuilder = {
+    exec(http("Get movie summary page")
+      .get("/summary")
+      .check(status.is(200))
+    )
+  }
+
+  def submitMovieSummaryPage: ChainBuilder = {
+    exec(http("submit movie")
+      .get("/submit")
+      .disableFollowRedirect
+      .check(status.is(303))
+    )
+  }
+
+  def getSubmissionConfPage: ChainBuilder = {
+    exec(http("get movie submission confirmation")
+      .get("/confirmation")
+      .disableFollowRedirect
+      .check(status.is(200))
+    )
+  }
 }
