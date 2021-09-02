@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
-import requests.{AgeRating, HomePage, MoviePage, RegisterMovie}
+import requests.{AgeRating, HomePage, MoviePage, RegisterMovie, StartPage}
 
 
 class CapMoviesSimulation extends Simulation {
@@ -17,6 +17,7 @@ class CapMoviesSimulation extends Simulation {
     .exec(MoviePage.getMoviePage)
     .exec(RegisterMovie.getLogin)
     .exec(RegisterMovie.submitLogin)
+    .exec(StartPage.getStartPage)
     .exec(HomePage.getHomePage)
     .exec(RegisterMovie.getMovieTitlePage)
     .exec(RegisterMovie.submitMovieTitle)
