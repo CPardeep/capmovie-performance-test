@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
-import requests.{AgeRating, HomePage, MoviePage, RegisterMovie, StartPage}
+import requests.{AgeRating, DeletePage, HomePage, MoviePage, RegisterMovie, StartPage}
 
 
 class CapMoviesSimulation extends Simulation {
@@ -43,7 +43,8 @@ class CapMoviesSimulation extends Simulation {
     .exec(RegisterMovie.getMovieSummaryPage)
     .exec(RegisterMovie.submitMovieSummaryPage)
     .exec(RegisterMovie.getSubmissionConfPage)
-
+    .exec(DeletePage.getDeleteAreYouSurePage)
+    .exec(DeletePage.getDeleteConfirmation)
 
   val RegisterMovieSimulation: SetUp =
     setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
