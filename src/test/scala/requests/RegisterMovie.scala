@@ -95,6 +95,14 @@ object RegisterMovie {
     )
   }
 
+  def removeMovieGenre: ChainBuilder = {
+    exec(http("remove Movie Genre")
+      .get("/movie-genres/confirmation/testGenre")
+      .disableFollowRedirect
+      .check(status.is(303))
+    )
+  }
+
   def getMovieCastPage: ChainBuilder = {
     exec(http("Get movie cast page")
       .get("/movie-cast/")
@@ -109,9 +117,9 @@ object RegisterMovie {
     )
   }
 
-  def removeMovieGenre: ChainBuilder = {
-    exec(http("remove Movie Genre")
-      .get("/movie-genres/confirmation/testGenre")
+  def removeMovieCast: ChainBuilder = {
+    exec(http("remove Movie Cast")
+      .get("/movie-cast/confirmation/testCast")
       .disableFollowRedirect
       .check(status.is(303))
     )
