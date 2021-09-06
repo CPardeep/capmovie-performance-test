@@ -14,6 +14,7 @@ class CapMoviesSimulation extends Simulation {
     .inferHtmlResources()
 
   val scn: ScenarioBuilder = scenario("RegisterMovieSimulation")
+    .exec(HomePage.getHomePage)
     .exec(MoviePage.getMoviePage)
     .exec(RegisterMovie.getLogin)
     .exec(RegisterMovie.submitLogin)
@@ -30,6 +31,9 @@ class CapMoviesSimulation extends Simulation {
     .exec(RegisterMovie.getMovieGenresPage)
     .exec(RegisterMovie.submitMovieGenres)
     .exec(RegisterMovie.getMovieGenresConfPage)
+    .exec(RegisterMovie.removeMovieGenre)
+    .exec(RegisterMovie.getMovieGenresPage)
+    .exec(RegisterMovie.submitMovieGenres)
     .exec(RegisterMovie.getMovieCastPage)
     .exec(RegisterMovie.submitMovieCast)
     .exec(RegisterMovie.getMovieCastConfPage)

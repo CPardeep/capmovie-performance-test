@@ -9,14 +9,14 @@ object RegisterMovie {
 
   def getMovieTitlePage: ChainBuilder = {
     exec(http("Get movie title page")
-      .get("/movie-title/")
+      .get("/movie-title")
       .check(status.is(200))
     )
   }
 
   def submitMovieTitle: ChainBuilder = {
     exec(http("Submit movie title")
-      .post("/movie-title/")
+      .post("/movie-title")
       .formParam("title", "TestTitle")
       .disableFollowRedirect
       .check(status.is(303))
@@ -32,7 +32,7 @@ object RegisterMovie {
 
   def submitMoviePoster: ChainBuilder = {
     exec(http("Submit movie poster")
-      .post("/movie-poster/")
+      .post("/movie-poster")
       .formParam("poster", "TestPoster")
       .disableFollowRedirect
       .check(status.is(303))
@@ -41,14 +41,14 @@ object RegisterMovie {
 
   def getMoviePlot: ChainBuilder = {
     exec(http("get movie plot")
-      .get("/movie-plot/")
+      .get("/movie-plot")
       .check(status.is(200))
     )
   }
 
   def submitMoviePlot: ChainBuilder = {
     exec(http("Submit movie plot")
-      .post("/movie-plot/")
+      .post("/movie-plot")
       .formParam("plot", "TestPlot")
       .disableFollowRedirect
       .check(status.is(303))
@@ -57,14 +57,14 @@ object RegisterMovie {
 
   def getLogin: ChainBuilder = {
     exec(http("Get Login Page")
-      .get("/login/")
+      .get("/login")
       .check(status.is(200))
     )
   }
 
   def submitLogin: ChainBuilder = {
     exec(http("Submit login details")
-      .post("/login/")
+      .post("/login")
       .formParam("id", "ADMIN0001")
       .formParam("password", "PASS")
       .disableFollowRedirect
@@ -74,14 +74,14 @@ object RegisterMovie {
 
   def getMovieGenresPage: ChainBuilder = {
     exec(http("Get movie genres page")
-      .get("/movie-genres/")
+      .get("/movie-genres")
       .check(status.is(200))
     )
   }
 
   def submitMovieGenres: ChainBuilder = {
     exec(http("Submit movie genre")
-      .post("/movie-genres/")
+      .post("/movie-genres")
       .formParam("genres", "testGenre")
       .disableFollowRedirect
       .check(status.is(303))
@@ -106,6 +106,12 @@ object RegisterMovie {
     exec(http("Submit movie cast")
       .post("/movie-cast/")
       .formParam("cast", "testCast")
+    )
+  }
+
+  def removeMovieGenre: ChainBuilder = {
+    exec(http("remove Movie Genre")
+      .get("/movie-genres/confirmation/testGenre")
       .disableFollowRedirect
       .check(status.is(303))
     )
@@ -140,4 +146,5 @@ object RegisterMovie {
       .check(status.is(200))
     )
   }
+
 }
