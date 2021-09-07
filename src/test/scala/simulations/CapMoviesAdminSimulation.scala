@@ -6,8 +6,7 @@ import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 import requests.{AgeRating, DeletePage, HomePage, MoviePage, RegisterMovie, StartPage}
 
-
-class CapMoviesSimulation extends Simulation {
+class CapMoviesAdminSimulation extends Simulation {
 
   val httpProtocol: HttpProtocolBuilder = http
     .baseUrl("http://localhost:9000/capmovie")
