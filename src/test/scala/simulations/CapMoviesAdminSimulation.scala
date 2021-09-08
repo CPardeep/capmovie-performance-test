@@ -40,6 +40,8 @@ class CapMoviesAdminSimulation extends Simulation {
     .exec(RegisterMovie.getMovieCastPage)
     .exec(RegisterMovie.submitMovieCast)
     .exec(RegisterMovie.getMovieSummaryPage)
+    .exec(RegisterMovie.getMovieTitleChangeLink)
+    .exec(RegisterMovie.submitUpdatedMovieTitle)
     .exec(RegisterMovie.submitMovieSummaryPage)
     .exec(RegisterMovie.getSubmissionConfPage)
     .exec(DeletePage.getDeleteAreYouSurePage)

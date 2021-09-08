@@ -9,14 +9,14 @@ object RegisterMovie {
 
   def getMovieTitlePage: ChainBuilder = {
     exec(http("Get movie title page")
-      .get("/movie-title")
+      .get("/movie-title/false")
       .check(status.is(200))
     )
   }
 
   def submitMovieTitle: ChainBuilder = {
     exec(http("Submit movie title")
-      .post("/movie-title")
+      .post("/movie-title/false")
       .formParam("title", "TestTitle")
       .disableFollowRedirect
       .check(status.is(303))
@@ -25,14 +25,14 @@ object RegisterMovie {
 
   def getMoviePosterPage: ChainBuilder = {
     exec(http("Get movie poster page")
-      .get("/movie-poster")
+      .get("/movie-poster/false")
       .check(status.is(200))
     )
   }
 
   def submitMoviePoster: ChainBuilder = {
     exec(http("Submit movie poster")
-      .post("/movie-poster")
+      .post("/movie-poster/false")
       .formParam("poster", "TestPoster")
       .disableFollowRedirect
       .check(status.is(303))
@@ -41,14 +41,14 @@ object RegisterMovie {
 
   def getMoviePlot: ChainBuilder = {
     exec(http("get movie plot")
-      .get("/movie-plot")
+      .get("/movie-plot/false")
       .check(status.is(200))
     )
   }
 
   def submitMoviePlot: ChainBuilder = {
     exec(http("Submit movie plot")
-      .post("/movie-plot")
+      .post("/movie-plot/false")
       .formParam("plot", "TestPlot")
       .disableFollowRedirect
       .check(status.is(303))
@@ -74,14 +74,14 @@ object RegisterMovie {
 
   def getMovieGenresPage: ChainBuilder = {
     exec(http("Get movie genres page")
-      .get("/movie-genres")
+      .get("/movie-genres/false")
       .check(status.is(200))
     )
   }
 
   def submitMovieGenres: ChainBuilder = {
     exec(http("Submit movie genre")
-      .post("/movie-genres")
+      .post("/movie-genres/false")
       .formParam("genres", "testGenre")
       .disableFollowRedirect
       .check(status.is(303))
@@ -90,14 +90,14 @@ object RegisterMovie {
 
   def getMovieGenresConfPage: ChainBuilder = {
     exec(http("Get movie genres confirmation page")
-      .get("/movie-genres/confirmation")
+      .get("/movie-genres/confirmation/false")
       .check(status.is(200))
     )
   }
 
   def removeMovieGenre: ChainBuilder = {
     exec(http("remove Movie Genre")
-      .get("/movie-genres/confirmation/testGenre")
+      .get("/movie-genres/confirmation/testGenre/false")
       .disableFollowRedirect
       .check(status.is(303))
     )
@@ -105,15 +105,17 @@ object RegisterMovie {
 
   def getMovieCastPage: ChainBuilder = {
     exec(http("Get movie cast page")
-      .get("/movie-cast/")
+      .get("/movie-cast")
       .check(status.is(200))
     )
   }
 
   def submitMovieCast: ChainBuilder = {
     exec(http("Submit movie cast")
-      .post("/movie-cast/")
+      .post("/movie-cast")
       .formParam("cast", "testCast")
+      .disableFollowRedirect
+      .check(status.is(303))
     )
   }
 
@@ -134,8 +136,24 @@ object RegisterMovie {
 
   def getMovieSummaryPage: ChainBuilder = {
     exec(http("Get movie summary page")
-      .get("/summary")
+      .get("/summary/false")
       .check(status.is(200))
+    )
+  }
+
+  def getMovieTitleChangeLink: ChainBuilder = {
+    exec(http("Get movie title change link")
+      .get("/movie-title/true")
+      .check(status.is(200))
+      )
+  }
+
+  def submitUpdatedMovieTitle: ChainBuilder = {
+    exec(http("submit updated movie title")
+      .post("/movie-title/true")
+      .formParam("title", "TestTitle1")
+      .disableFollowRedirect
+      .check(status.is(303))
     )
   }
 
