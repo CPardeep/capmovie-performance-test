@@ -95,7 +95,8 @@ object UpdateMovie {
   def submitMoviePoster: ChainBuilder = {
     exec(http("submit movie poster update page ")
       .post("update/MOV0001/poster")
-      .formParam("poster", "testPoster")
+      .formParam("poster",
+        "https://m.media-amazon.com/images/M/MV5BMTMzMDcxMjgyNl5BMl5BanBnXkFtZTcwOTgxNjg4Mg@@._V1_SY1000_SX677_AL_.jpg")
       .disableFollowRedirect
       .check(status.is(303))
     )
