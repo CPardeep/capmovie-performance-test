@@ -33,7 +33,8 @@ object RegisterMovie {
   def submitMoviePoster: ChainBuilder = {
     exec(http("Submit movie poster")
       .post("/movie-poster/false")
-      .formParam("poster", "TestPoster")
+      .formParam("poster",
+        "https://m.media-amazon.com/images/M/MV5BMTMzMDcxMjgyNl5BMl5BanBnXkFtZTcwOTgxNjg4Mg@@._V1_SY1000_SX677_AL_.jpg")
       .disableFollowRedirect
       .check(status.is(303))
     )
